@@ -63,7 +63,7 @@ sed -i 's/^.*rpc-port.*/"rpc-port": '$(echo $port)',/' /var/lib/transmission-dae
 mkdir -p /home/transmission/Downloads/
 chmod -R 777 /home/transmission/Downloads/
 
-# END
+# ENDING
 clear
 echo "Done."
 echo " "
