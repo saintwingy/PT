@@ -1,15 +1,7 @@
 #!/bin/bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
-# http://dadi.me/ dadi.ME
-# 2013.03.30
-# Transmission | Debian
-# VERSION CHOICE
-ver="latest"
-echo "Which version(latest OR stable) do you want to install:"
-read -p "Type latest or stable (latest):" ver
-if [ "$ver" = "" ]; then
-	ver="latest"
+
 fi
 
 # CONFIGURATION
@@ -44,16 +36,11 @@ fi
 	echo ""
 	echo "Press any key to start...or Press Ctrl+c to cancel"
 	char=`get_char`
-
 # START
-if [ "$ver" = "latest" ]; then
 apt-get -y install python-software-properties software-properties-common
 add-apt-repository ppa:transmissionbt/ppa
 	apt-get update
 	apt-get install transmission-daemon -y
-else
-	apt-get update
-	apt-get -y install transmission-daemon
 fi
 
 # SETTINGS.JSON
