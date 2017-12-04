@@ -5,9 +5,8 @@ ver="latest"
 echo "Which version(latest OR stable) do you want to install:"
 read -p "Type latest or stable (latest):" ver
 if [ "$ver" = "" ]; then
-	ver="latest"
+ver="latest"
 fi
-
 # CONFIGURATION
 username=""
 read -p "Set username(dadi.me):" username
@@ -26,8 +25,7 @@ read -p "Set port(1989):" port
 if [ "$port" = "" ]; then
 	port="1989"
 fi
-
-	get_char()
+get_char()
 	{
 	SAVEDSTTY=`stty -g`
 	stty -echo
