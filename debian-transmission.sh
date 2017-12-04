@@ -3,7 +3,7 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 ver="latest"
 echo "Which version(latest OR stable) do you want to install:"
-read -p "Type latest or stable (latest):"ver
+read -p "Type latest or stable (latest):" ver
 if [ "$ver" = "" ]; then
 ver="latest"
 fi
