@@ -8,7 +8,7 @@ export PATH
 
 # VERSION CHOICE
 ver="latest"
-echo "Which version(latest OR stable) do you want to install:"
+echo "Install the latest version:"
 read -p "Type latest or stable (latest):" ver
 if [ "$ver" = "" ]; then
 	ver="latest"
@@ -49,19 +49,20 @@ fi
 
 # START
 if [ "$ver" = "latest" ]; then
-	echo "deb http://ftp.debian.org/debian/ sid main" >> /etc/apt/sources.list
-	echo "deb http://ftp.debian.org/debian/ experimental main" >> /etc/apt/sources.list
+apt-get -y install python-software-properties software-properties-common
+add-apt-repository ppa:transmissionbt/ppa
 	apt-get update
 	apt-get -t experimental install transmission-daemon -y
-	echo "APT::Default-Release \"stable\";" >> /etc/apt/apt.conf.d/71distro
 else
+apt-get -y install python-software-properties software-properties-common
+add-apt-repository ppa:transmissionbt/ppa
 	apt-get update
 	apt-get -y install transmission-daemon
 fi
 
 # SETTINGS.JSON
 /etc/init.d/transmission-daemon stop
-wget http://dadi.me/wp-content/uploads/dir/Transmission/settings.json
+wget https://raw.githubusercontent.com/saintwingy/transmission/master/settings.json
 mv -f settings.json /var/lib/transmission-daemon/info/
 sed -i 's/^.*rpc-username.*/"rpc-username": "'$(echo $username)'",/' /var/lib/transmission-daemon/info/settings.json
 sed -i 's/^.*rpc-password.*/"rpc-password": "'$(echo $password)'",/' /var/lib/transmission-daemon/info/settings.json
@@ -74,7 +75,7 @@ chmod -R 777 /home/transmission/Downloads/
 # END
 clear
 echo "Done."
-echo " "
+echo "Modified by wdwy"
 echo "Web GUI: http://your ip:$port/"
 echo "username: $username"
 echo "password: $password"
