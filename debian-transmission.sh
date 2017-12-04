@@ -49,11 +49,13 @@ fi
 
 # START
 if [ "$ver" = "latest" ]; then
+apt-get update
 apt-get -y install python-software-properties software-properties-common
 add-apt-repository ppa:transmissionbt/ppa
 	apt-get update
 	apt-get -t experimental install transmission-daemon -y
 else
+apt-get update
 apt-get -y install python-software-properties software-properties-common
 add-apt-repository ppa:transmissionbt/ppa
 	apt-get update
@@ -62,7 +64,7 @@ fi
 
 # SETTINGS.JSON
 /etc/init.d/transmission-daemon stop
-wget https://raw.githubusercontent.com/saintwingy/transmission/master/settings.json
+wget --no-check-certificate https://raw.githubusercontent.com/saintwingy/transmission/master/settings.json
 mv -f settings.json /var/lib/transmission-daemon/info/
 sed -i 's/^.*rpc-username.*/"rpc-username": "'$(echo $username)'",/' /var/lib/transmission-daemon/info/settings.json
 sed -i 's/^.*rpc-password.*/"rpc-password": "'$(echo $password)'",/' /var/lib/transmission-daemon/info/settings.json
