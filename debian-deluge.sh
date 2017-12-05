@@ -45,9 +45,9 @@ fi
 
 # END
 clear
-echo "Congratulations!"
-echo "Modified by wdwy"
-echo "WebUI: http://your ip:8112/"
-echo "Default password: deluge"
+echo "#######Congratulations!#######"
+echo "#######Modified by wdwy#######"
+echo "# WebUI: http://your ip:8112/#"
+echo "# Default password: deluge   #"
 echo ""
 echo ""
