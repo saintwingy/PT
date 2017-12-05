@@ -64,17 +64,17 @@ fi
 
 # SETTINGS.JSON
 /etc/init.d/transmission-daemon stop
-wget --no-check-certificate https://raw.githubusercontent.com/saintwingy/transmission/master/settings.json
+wget --no-check-certificate https://raw.githubusercontent.com/saintwingy/PT/master/settings.json
 mv -f settings.json /var/lib/transmission-daemon/info/
 sed -i 's/^.*rpc-username.*/"rpc-username": "'$(echo $username)'",/' /var/lib/transmission-daemon/info/settings.json
 sed -i 's/^.*rpc-password.*/"rpc-password": "'$(echo $password)'",/' /var/lib/transmission-daemon/info/settings.json
 sed -i 's/^.*rpc-port.*/"rpc-port": '$(echo $port)',/' /var/lib/transmission-daemon/info/settings.json
-/etc/init.d/transmission-daemon restart
+/etc/init.d/transmission-daemon start
 
 mkdir -p /home/transmission/Downloads/
 chmod -R 777 /home/transmission/Downloads/
 
-service transmission-daemon start
+service transmission-daemon restart
 
 # END
 clear
