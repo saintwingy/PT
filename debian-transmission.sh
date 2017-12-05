@@ -69,7 +69,7 @@ mv -f settings.json /var/lib/transmission-daemon/info/
 sed -i 's/^.*rpc-username.*/"rpc-username": "'$(echo $username)'",/' /var/lib/transmission-daemon/info/settings.json
 sed -i 's/^.*rpc-password.*/"rpc-password": "'$(echo $password)'",/' /var/lib/transmission-daemon/info/settings.json
 sed -i 's/^.*rpc-port.*/"rpc-port": '$(echo $port)',/' /var/lib/transmission-daemon/info/settings.json
-/etc/init.d/transmission-daemon start
+/etc/init.d/transmission-daemon restart
 
 mkdir -p /home/transmission/Downloads/
 chmod -R 777 /home/transmission/Downloads/
