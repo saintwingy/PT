@@ -51,13 +51,13 @@ fi
 if [ "$ver" = "latest" ]; then
 apt-get update
 apt-get -y install python-software-properties software-properties-common
-add-apt-repository ppa:transmissionbt/ppa
+add-apt-repository ppa:transmissionbt/ppa -y
 	apt-get update
-	apt-get -t experimental install transmission-daemon -y
+	apt-get install transmission-daemon -y
 else
 apt-get update
 apt-get -y install python-software-properties software-properties-common
-add-apt-repository ppa:transmissionbt/ppa
+add-apt-repository ppa:transmissionbt/ppa -y
 	apt-get update
 	apt-get -y install transmission-daemon
 fi
