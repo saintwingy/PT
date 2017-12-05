@@ -37,12 +37,7 @@ if [ "$ver" = "y" ]; then
 	apt-get install -y deluged deluge-web
 	deluged
 	deluge-web --fork
-	sed -i 's/exit 0/#exitwdwy/' /etc/rc.local
-	sed -i '/#exitwdwy/a\deluge-web' /etc/rc.local
-	sed -i '/#deluge-web/a\exit 0' /etc/rc.local
-	
-
-	
+	sed -i '/exit 0/i\deluge-web' /etc/rc.local
 	
 else
 exit
