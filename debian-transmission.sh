@@ -74,6 +74,8 @@ sed -i 's/^.*rpc-port.*/"rpc-port": '$(echo $port)',/' /var/lib/transmission-dae
 mkdir -p /home/transmission/Downloads/
 chmod -R 777 /home/transmission/Downloads/
 
+service transmission-daemon restart
+
 # END
 clear
 echo "Done."
