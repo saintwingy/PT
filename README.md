@@ -7,6 +7,9 @@ chmod +x debian-transmission.sh
 
 bash debian-transmission.sh
 
+
+
+---------------------------------------------------------------------------------------------------------
 Deluge Debian/Ubuntu Onekey Script
 
 wget --no-check-certificate https://raw.githubusercontent.com/saintwingy/PT/master/debian-deluge.sh
